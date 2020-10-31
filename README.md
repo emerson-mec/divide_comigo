@@ -1,16 +1,13 @@
-# divide_comigo
+# App Divide Comigo
 
-A new Flutter project.
+Você já precisou dividir as despesas do mês com seu companheiro(a)? 
+Se desprenda de planilhas, o App Divide Comigo veio para facilitar essa tarefa.
 
-## Getting Started
+## Em desenvolvimento
 
-This project is a starting point for a Flutter application.
+Este aplicativo está em fase de desenvolvimento.
 
-A few resources to get you started if this is your first Flutter project:
+Novas features estarão disponíveis em breve.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Fale conosco
+contato: memensoamo@gmail.com

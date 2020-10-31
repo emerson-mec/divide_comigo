@@ -26,7 +26,7 @@ class HomeApp extends StatelessWidget {
           Despesas(),
           Despesas(),
           Despesas(),
-          Despesas()
+          Despesas(),
         ],
       ),
       floatingActionButton: FloatingActionButton(
