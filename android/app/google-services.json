@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "315213264658",
+    "firebase_url": "https://divide-comigo.firebaseio.com",
+    "project_id": "divide-comigo",
+    "storage_bucket": "divide-comigo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:315213264658:android:5e5f51db0b49f1b73f65cb",
+        "android_client_info": {
+          "package_name": "com.example.divide_comigo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "315213264658-drmr7ssuj7i2o5d7r1nouifc0tgolk8v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5gnQ3j-jpK7LvQX2D-fXLuS4iTkuUHSk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "315213264658-drmr7ssuj7i2o5d7r1nouifc0tgolk8v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

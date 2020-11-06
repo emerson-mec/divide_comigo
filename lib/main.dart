@@ -1,16 +1,27 @@
-import 'package:divide_comigo/screens/home_app.dart';
+import 'package:divide_comigo/views/home_overview.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-void main() {
+import 'Provider/item-provider.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(
-    MaterialApp(
-      title: 'Divide Comigo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+    ChangeNotifierProvider(
+      create: (_) => ItemProvider(),
+      child: MaterialApp(
+        title: 'Divide Comigo',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.deepPurple,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        routes: {
+          "/": (context) => HomeApp(),
+        },
       ),
-      home: HomeApp(),
     ),
   );
 }
