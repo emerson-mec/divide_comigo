@@ -1,14 +1,20 @@
 import 'package:divide_comigo/Model/item-model.dart';
+import 'package:divide_comigo/Provider/item-provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class ItemList extends StatelessWidget {
+  final int index;
+
+  ItemList(this.index);
+
   @override
   Widget build(BuildContext context) {
-    final ItemModel produto = Provider.of(context, listen: false);
+    ItemProvider protudoRaw = Provider.of(context);
+    ItemModel produto = Provider.of(context, listen: false);
 
     return Padding(
-      padding: const EdgeInsets.only(top: 15, left: 15, right: 15),
+      padding: const EdgeInsets.only(left: 15, right: 15, bottom: 8),
       child: Container(
         width: MediaQuery.of(context).size.width,
         color: Color.fromRGBO(150, 150, 150, 0.1),
@@ -19,7 +25,7 @@ class ItemList extends StatelessWidget {
               Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.only(left: 2, right: 10),
                     child: CircleAvatar(
                       maxRadius: 15,
                       // backgroundColor: Color(0xFF00a9ea),
@@ -35,11 +41,6 @@ class ItemList extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          produto.tipoAsText,
-                          style: TextStyle(
-                              color: Colors.grey, fontWeight: FontWeight.w300),
-                        ),
                         Container(
                           width: MediaQuery.of(context).size.width / 2.5,
                           child: Text(
@@ -54,6 +55,14 @@ class ItemList extends StatelessWidget {
                           produto.data,
                           style: TextStyle(color: Colors.black38, fontSize: 12),
                         ),
+                        Text(
+                          produto.tipoAsText,
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontWeight: FontWeight.w300,
+                            fontSize: 12,
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -63,17 +72,16 @@ class ItemList extends StatelessWidget {
                       child: Column(
                         children: [
                           Container(
-                            width: MediaQuery.of(context).size.width / 3.5,
                             child: Text(
-                              '${produto.devedor[0]} deve R\$ ${produto.valor / 2}',
+                              '${produto.devedor} deve R\$ ${produto.valor / 2}',
                               style: TextStyle(
                                 fontSize: 10,
-                                color: Colors.redAccent,
+                                color: Colors.grey,
                               ),
                             ),
                           ),
                           Text(
-                            '${produto.pagador[0]} pagou\nR\$ ${produto.valor}',
+                            '${produto.pagador} pagou\nR\$ ${produto.valor}',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontWeight: FontWeight.w400,
@@ -84,7 +92,41 @@ class ItemList extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Icon(Icons.more_vert_rounded),
+                  ////////////// OPÇÕES MENU
+                  PopupMenuButton(
+                    onSelected: (Options selectedValue) {
+                      if (Options.Apagar == selectedValue) {
+                        print('Clicou em apagar');
+                        protudoRaw.removeItem(index);
+                      } else if (Options.Alterar == selectedValue) {
+                        print('Clicou em alterar');
+                      }
+                    },
+                    icon: Icon(Icons.more_vert),
+                    itemBuilder: (_) => [
+                      PopupMenuItem(
+                        child: Row(
+                          children: [
+                            Icon(Icons.edit_rounded),
+                            Text('  Alterar'),
+                          ],
+                        ),
+                        value: Options.Alterar,
+                      ),
+                      PopupMenuItem(
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.delete,
+                              color: Colors.red,
+                            ),
+                            Text('  Apagar'),
+                          ],
+                        ),
+                        value: Options.Apagar,
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ],
@@ -93,4 +135,9 @@ class ItemList extends StatelessWidget {
       ),
     );
   }
+}
+
+enum Options {
+  Alterar,
+  Apagar,
 }

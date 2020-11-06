@@ -20,8 +20,8 @@ class ItemModel extends ChangeNotifier {
   String data;
   CategoriaItem tipo;
   double valor;
-  List pagador;
-  List devedor;
+  String pagador;
+  String devedor;
 
   ItemModel({
     this.item,

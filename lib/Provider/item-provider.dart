@@ -5,10 +5,36 @@ import 'package:flutter/cupertino.dart';
 class ItemProvider with ChangeNotifier {
   List<ItemModel> _itemMocados = itemDATA;
 
-  List<ItemModel> get item => [..._itemMocados];
+  get item => [..._itemMocados];
 
-  void adicionarItem(ItemModel newItem) {
-    _itemMocados.add(newItem);
-    notifyListeners(); //esse código avisa que os dados foram alterados
+  removeItem(int index) {
+    _itemMocados.removeAt(index);
+    notifyListeners();
+  }
+
+  void apagarTudo() {
+    _itemMocados.clear();
+    notifyListeners();
+  }
+
+  void addItem({
+    String data = '00/00/0000',
+    String item = '',
+    String devedor = '',
+    String pagador = '',
+    double valor = 0.0,
+    CategoriaItem tipo = CategoriaItem.Outros,
+  }) {
+    _itemMocados.add(
+      ItemModel(
+        item: item,
+        devedor: devedor,
+        pagador: pagador,
+        data: data,
+        valor: valor,
+        tipo: tipo,
+      ),
+    );
+    notifyListeners();
   }
 }
