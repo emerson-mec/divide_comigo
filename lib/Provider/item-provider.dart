@@ -18,8 +18,8 @@ class ItemProvider with ChangeNotifier {
   }
 
   void addItem({
-    String data = '00/00/0000',
-    String item = '',
+    String data = '',
+    String item,
     String devedor = '',
     String pagador = '',
     double valor = 0.0,
