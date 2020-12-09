@@ -27,7 +27,7 @@ class ItemModel extends ChangeNotifier {
     this.item,
     this.data,
     this.tipo = CategoriaItem.Outros,
-    this.valor,
+    this.valor = 0.0,
     this.pagador,
     this.devedor,
   });

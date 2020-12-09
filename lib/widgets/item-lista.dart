@@ -10,8 +10,8 @@ class ItemList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ItemProvider protudoRaw = Provider.of(context);
-    ItemModel produto = Provider.of(context, listen: false);
+    ItemProvider protudoRaw = Provider.of<ItemProvider>(context);
+    ItemModel produto = Provider.of<ItemModel>(context, listen: false);
 
     return Padding(
       padding: const EdgeInsets.only(left: 15, right: 15, bottom: 8),
